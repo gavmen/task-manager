@@ -3,11 +3,13 @@ function Task({ task, onDelete, onUpdate }) {
         <div className="task">
             <h3>{task.title}</h3>
             <p>{task.description}</p>
+            <div>
             <input 
                 type="checkbox" 
                 checked={task.done}
                 onChange={() => onUpdate({...task, done: !task.done})}
-            /> Completed
+            /> <span>Completed</span>
+            </div>
             <button onClick={() => onDelete(task.id)}>Delete</button>
         </div>
     );

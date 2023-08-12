@@ -3,13 +3,15 @@ package main
 import (
 	"database/sql"
 	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var db *sql.DB
-var err error
 
 func init() {
-	db, err = sql.Open("tasks", "gabriel:password@tcp(127.0.0.1:3306)/tasks")
+	var err error
+	db, err = sql.Open("mysql", "gabriel:password@tcp(127.0.0.1:3306)/tasks")
 	if err != nil {
 		panic(err.Error())
 	}
